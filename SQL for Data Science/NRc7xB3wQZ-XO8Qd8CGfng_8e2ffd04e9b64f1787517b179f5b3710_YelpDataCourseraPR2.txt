@@ -196,16 +196,39 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 7. Find the top 3 users based on their total number of reviews:
 		
 	SQL code used to arrive at answer:
-	
+	select review_count,
+    		name 
+	from user
+	order by review_count desc
+	limit 3
 
 	Copy and Paste the Result Below:
-		
-
+	+--------------+--------+
+	| review_count | name   |
+	+--------------+--------+
+	|         2000 | Gerald |
+	|         1629 | Sara   |
+	|         1339 | Yuri   |
+	+--------------+--------+
 
 8. Does posing more reviews correlate with more fans?
-
 	Please explain your findings and interpretation of the results:
-	
+
+	yes there appears to be a positive correlation between review_count and fans
+
+	/* sqlite doesn't support corr() function for finding pearson coefficient so we gotta do it this way */
+	SELECT range AS fans_range, 
+		COUNT(*) AS num_user, 
+		AVG(review_count) AS avg_num_review,     
+		AVG(fans) AS avg_num_fans
+	FROM (SELECT CASE  
+				WHEN fans BETWEEN 0 AND 250 THEN '0 - 250'
+				WHEN fans BETWEEN 250 AND 500 THEN '250 - 500'
+				ELSE '500+' END AS range,
+				review_count, 
+				fans
+		FROM user) AS subtable
+	GROUP BY subtable.range
 
 	
 9. Are there more reviews with the word "love" or with the word "hate" in them?
