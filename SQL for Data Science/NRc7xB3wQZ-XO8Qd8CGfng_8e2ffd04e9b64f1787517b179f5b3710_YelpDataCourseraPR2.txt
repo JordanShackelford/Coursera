@@ -308,8 +308,10 @@ i. Difference 1:
 ii. Difference 2:
 
 SQL code used for analysis:
-	select avg(business.stars),
-		business.is_open
+	select avg(stars),
+		count(stars),
+		avg(review_count),
+		is_open
 	from business
 	group by is_open
 	
