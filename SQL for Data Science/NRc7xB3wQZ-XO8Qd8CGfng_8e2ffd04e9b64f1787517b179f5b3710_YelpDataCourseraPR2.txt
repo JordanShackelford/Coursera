@@ -83,28 +83,22 @@ Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.
 	i. Table: Review, Column: Stars
 	
 		min: 1	max: 5	avg: 3.7082
-		
 	
 	ii. Table: Business, Column: Stars
 	
 		min: 1.0		max: 5.0		avg: 3.6549
-		
 	
 	iii. Table: Tip, Column: Likes
 	
 		min: 0		max: 2		avg: 0.0144
-		
 	
 	iv. Table: Checkin, Column: Count
 	
 		min: 1		max: 53		avg: 1.9414
 		
-	
 	v. Table: User, Column: Review_count
 	
 		min: 0	max: 2,000		avg: 24.2995
-		
-
 
 5. List the cities with the most reviews in descending order:
 
@@ -147,8 +141,6 @@ Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.
 	+-----------------------+-----------------+
 	(Output limit exceeded, 25 of 362 total rows shown)
 	
-
-	
 6. Find the distribution of star ratings to the business in the following cities:
 
 i. Avon
@@ -178,7 +170,6 @@ SQL code used to arrive at answer:
 	from business 
 	where city='Beachwood'
 	group by stars
-
 
 Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 	+-------+--------------+
@@ -241,7 +232,6 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 	Answer:
 	There are more reviews with the word "love" than with the word "hate"
 
-	
 	SQL code used to arrive at answer:
 		SELECT sentiment, count(*) count
 		FROM (
@@ -251,8 +241,7 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 					END AS sentiment
 			FROM review)
 		GROUP BY sentiment
-		ORDER BY count DESC
-	
+		ORDER BY count DESC	
 	
 10. Find the top 10 users with the most fans:
 
@@ -285,17 +274,16 @@ Part 2: Inferences and Analysis
 
 i. Do the two groups you chose to analyze have a different distribution of hours?
 
-
 ii. Do the two groups you chose to analyze have a different number of reviews?
 	SQL query:
-	SELECT business.city,
-		business.neighborhood
-		category.category,
-		business.name,
-		business.stars,
-		business.review_count
-	from business INNER JOIN category ON business.id = category.business_id
-	WHERE city = 'Pittsburgh' and category = "Restaurants"
+		SELECT business.city,
+			business.neighborhood
+			category.category,
+			business.name,
+			business.stars,
+			business.review_count
+		from business INNER JOIN category ON business.id = category.business_id
+		WHERE city = 'Pittsburgh' and category = "Restaurants"
 
 	Results:
 	+------------+--------------+-------------+-----------------------+-------+--------------+
@@ -309,7 +297,8 @@ ii. Do the two groups you chose to analyze have a different number of reviews?
 	I think this could mean that less people want to eat there because of its low rating and so less people are reviewing it
 
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
-	There is only neighborhood data for one restaurant so we can't infer much except that maybe Oakland has the worst restaurants in Pittsburgh
+	There is only neighborhood data for one restaurant so we can't infer much from the neighborhood except that maybe Oakland has the worst restaurants in Pittsburgh
+	If we look at lat and long, we see that 'Mad Mex - South Hills' has a lot of 40.3907 and a long of -80.0726, and 'Papa Da Vinci' has a lat of 40.4346 and a long of -79.9555. We could guess that north-east Pittsburgh has better restaurants than south-west Pittsburgh, but we really don't have a statistically significant amount of data to make that claim.
 
 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 	There are only 2 businesses in the restaurant category in pittsburgh and they're both open so I removed the "where city='pittsburgh' and category='restaurants'" from the query for a bigger dataset
@@ -317,24 +306,21 @@ i. Difference 1:
 	Open businesses had 3.68 average stars and closed businesses had 3.52 average stars, a difference of 0.16
          
 ii. Difference 2:
-         
-         
-         
-SQL code used for analysis:
 
-	
+SQL code used for analysis:
+	select avg(business.stars),
+		business.is_open
+	from business
+	group by is_open
 	
 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
 
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 	
 i. Indicate the type of analysis you chose to do:
-         
-         
+           
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-                           
-                  
+                                            
 iii. Output of your finished dataset:
-         
-         
+                
 iv. Provide the SQL code you used to create your final dataset:
