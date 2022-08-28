@@ -320,6 +320,7 @@ SQL code used for analysis:
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 	
 i. Indicate the type of analysis you chose to do:
+	I will get the average lat and long of each business grouped by category and is_open. Then we will be able to make inferences based on categories of business' proximity to other business categories and how that affects their likelihood of closing.
            
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
                                             
