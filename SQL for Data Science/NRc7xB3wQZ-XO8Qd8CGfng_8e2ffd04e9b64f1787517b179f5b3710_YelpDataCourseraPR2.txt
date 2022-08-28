@@ -357,6 +357,19 @@ iii. Output of your finished dataset:
 		|      33.94246 |      -112.5246 | Shopping               |       0 |
 		|     39.231764 |     -87.007348 | Shopping               |       1 |
 		+---------------+----------------+------------------------+---------+
+
+Conclusions:
+	I plotted these points in another application, https://www.desmos.com/calculator/mhq4hsncnh, to visualize the data and make inferences.
+	I found that the "American" category was more likely to close if wasn't close enough to "Bars" and "Food".
+	"Bars" were more likely to close if they were close to "Beauty and spas", more likely to be open if they were close to Nightlife
+	"Beauty and spas" that were closed were too far away from the other businesses generally, but also closest to "Health & Medical". They were more likely to be open if they were next to food.
+	"Food" was more likely to be closed if between "Home Services" and "Local Services", and more likely to be open if near "American" and "Beauty and spas"
+	"Health & Medical" was more likely to be closed if near "Restaurants", and more likely to be open if near "Home Services".
+	"Home Services" was more likely to be closed if near "Restaurants", and more likely to be open if between "Local Services" and "Health & Medical".
+	"Local Services" were more likely to close if closer to "Food" and "Beauty and Spas" than "Home Services".
+	"Nightlife" was more likely to be open if closer to "Bars" and "American" than to "Shopping".
+	"Restaurants" were open if close to "Shopping" but not too close.
+	"Shopping" was more likely to be open if near "Nightlife" and likely to be closed if near "Home Services".
                 
 iv. Provide the SQL code you used to create your final dataset:
 	select avg(latitude),
