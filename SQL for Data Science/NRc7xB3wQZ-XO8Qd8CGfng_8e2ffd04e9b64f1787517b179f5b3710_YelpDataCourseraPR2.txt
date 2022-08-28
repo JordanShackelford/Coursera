@@ -333,5 +333,36 @@ ii. Write 1-2 brief paragraphs on the type of data you will need for your analys
 	And I get Restaurants, Shopping, Food, Nightlife, Bars, Health & Medical, Home Services, Beauty & Spas, Local Services, American (Traditional) as the top 10 (in order).
 
 iii. Output of your finished dataset:
+		+---------------+----------------+------------------------+---------+
+		| avg(latitude) | avg(longitude) | category               | is_open |
+		+---------------+----------------+------------------------+---------+
+		|       36.4023 | -91.0202666667 | American (Traditional) |       0 |
+		|    39.8715125 |       -91.2416 | American (Traditional) |       1 |
+		|       38.2756 | -94.8015666667 | Bars                   |       0 |
+		| 40.2586181818 | -89.4500090909 | Bars                   |       1 |
+		|       33.3782 |       -111.936 | Beauty & Spas          |       0 |
+		| 39.2091583333 | -94.1384833333 | Beauty & Spas          |       1 |
+		| 36.6561333333 | -102.322433333 | Food                   |       0 |
+		|     38.830675 |     -93.652175 | Food                   |       1 |
+		|       43.6549 |       -79.3775 | Health & Medical       |       0 |
+		|   35.04764375 |   -109.0308875 | Health & Medical       |       1 |
+		|       35.1476 |       -80.7499 | Home Services          |       0 |
+		| 35.8689133333 |     -104.32092 | Home Services          |       1 |
+		|       34.2691 |      -96.21995 | Local Services         |       0 |
+		|        37.285 |     -100.22097 | Local Services         |       1 |
+		|       39.8736 |    -85.4913025 | Nightlife              |       0 |
+		|      40.27825 |     -88.650825 | Nightlife              |       1 |
+		| 39.6810777778 | -86.0268588889 | Restaurants            |       0 |
+		| 41.1897320755 |  -82.427314717 | Restaurants            |       1 |
+		|      33.94246 |      -112.5246 | Shopping               |       0 |
+		|     39.231764 |     -87.007348 | Shopping               |       1 |
+		+---------------+----------------+------------------------+---------+
                 
 iv. Provide the SQL code you used to create your final dataset:
+	select avg(latitude),
+		avg(longitude),
+		category.category,
+		is_open
+	from business inner join category on business.id = category.business_id
+	where category.category in ('Restaurants', 'Shopping', 'Food', 'Nightlife', 'Bars', 'Health & Medical', 'Home Services', 'Beauty & Spas', 'Local Services', 'American (Traditional)')
+	group by category.category, business.is_open
