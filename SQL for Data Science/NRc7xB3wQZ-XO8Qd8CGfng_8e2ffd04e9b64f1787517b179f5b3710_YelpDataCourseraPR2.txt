@@ -359,9 +359,9 @@ iii. Output of your finished dataset:
 		+---------------+----------------+------------------------+---------+
 
 Conclusions:
-	I plotted these points in another application, https://www.desmos.com/calculator/mhq4hsncnh, to visualize the data and make inferences.
+	I plotted these points in another application to visualize the data and make inferences.
 	https://www.desmos.com/calculator/mj8c9bu2um
-	
+
 	I found that the "American" category was more likely to close if wasn't close enough to "Bars" and "Food".
 	"Bars" were more likely to close if they were close to "Beauty and spas", more likely to be open if they were close to "Nightlife:
 	"Beauty and spas" that were closed were too far away from the other businesses generally, but also closest to "Health & Medical". They were more likely to be open if they were next to food.
