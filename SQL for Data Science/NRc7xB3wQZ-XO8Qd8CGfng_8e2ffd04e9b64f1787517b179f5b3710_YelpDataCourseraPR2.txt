@@ -288,7 +288,8 @@ i. Do the two groups you chose to analyze have a different distribution of hours
 
 ii. Do the two groups you chose to analyze have a different number of reviews?
 	SQL query:
-	SELECT business.city, 
+	SELECT business.city,
+		business.neighborhood
 		category.category,
 		business.name,
 		business.stars,
@@ -297,25 +298,23 @@ ii. Do the two groups you chose to analyze have a different number of reviews?
 	WHERE city = 'Pittsburgh' and category = "Restaurants"
 
 	Results:
-	+------------+-------------+-----------------------+-------+--------------+
-	| city       | category    | name                  | stars | review_count |
-	+------------+-------------+-----------------------+-------+--------------+
-	| Pittsburgh | Restaurants | Mad Mex - South Hills |   3.0 |          103 |
-	| Pittsburgh | Restaurants | Papa Da Vinci         |   2.5 |           28 |
-	+------------+-------------+-----------------------+-------+--------------+
+	+------------+--------------+-------------+-----------------------+-------+--------------+
+	| city       | neighborhood | category    | name                  | stars | review_count |
+	+------------+--------------+-------------+-----------------------+-------+--------------+
+	| Pittsburgh |              | Restaurants | Mad Mex - South Hills |   3.0 |          103 |
+	| Pittsburgh | Oakland      | Restaurants | Papa Da Vinci         |   2.5 |           28 |
+	+------------+--------------+-------------+-----------------------+-------+--------------+
 
-	There were only 2 businesses in the restauraunt category in Pittsburgh, but yes, the one with 3.0 stars had more reviews than the one with 5
+	There were only 2 businesses in the restauraunts category in Pittsburgh, but yes, the one with 3.0 stars had more reviews than the one with 5 stars
+	I think this could mean that less people want to eat there because of its low rating and so less people are reviewing it
 
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
+	There is only neighborhood data for one restaurant so we can't infer much except that maybe Oakland has the worst restaurants in Pittsburgh
 
-SQL code used for analysis:
-
-		
-		
 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
-		
+	There are only 2 businesses in the restaurant category in pittsburgh and they're both open so I removed the "where city='pittsburgh' and category='restaurants'" from the query for a bigger dataset
 i. Difference 1:
-         
+	Open businesses had 3.68 average stars and closed businesses had 3.52 average stars, a difference of 0.16
          
 ii. Difference 2:
          
