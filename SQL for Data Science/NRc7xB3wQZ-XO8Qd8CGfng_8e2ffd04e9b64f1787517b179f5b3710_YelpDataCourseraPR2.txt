@@ -306,7 +306,7 @@ i. Difference 1:
 	Open businesses had 3.68 average stars and closed businesses had 3.52 average stars, a difference of 0.16
          
 ii. Difference 2:
-
+	Businesses that were closed had an average review count of 23.19 and businesses that were open had an average review count of 31.75. Closed difference had about 73% of the reviews of open businesses, on average.
 SQL code used for analysis:
 	select avg(stars),
 		count(stars),
