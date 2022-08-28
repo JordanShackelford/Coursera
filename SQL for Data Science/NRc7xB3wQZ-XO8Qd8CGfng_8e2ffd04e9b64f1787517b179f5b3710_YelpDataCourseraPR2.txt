@@ -323,7 +323,15 @@ i. Indicate the type of analysis you chose to do:
 	I will get the average lat and long of each business grouped by category and is_open. Then we will be able to make inferences based on categories of business' proximity to other business categories and how that affects their likelihood of closing.
            
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-                                            
+	I want to compare different categories against eachother, but there are too many for me to use all of them so I choose to sort them by num of businesses and then use the top 10 categories.
+	I run a query to identify the top categories of business:
+		select count(*),
+			category.category
+		from business inner join category on business.id = category.business_id
+		group by category.category
+		order by count(*) desc
+	And I get Restaurants, Shopping, Food, Nightlife, Bars, Health & Medical, Home Services, Beauty & Spas, Local Services, American (Traditional) as the top 10 (in order).
+
 iii. Output of your finished dataset:
                 
 iv. Provide the SQL code you used to create your final dataset:
