@@ -85,7 +85,6 @@ fprintf('Expected gradients (approx):\n 0.043\n 2.566\n 2.647\n');
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
-
 %% ============= Part 3: Optimizing using fminunc  =============
 %  In this exercise, you will use a built-in function (fminunc) to find the
 %  optimal parameters theta.
