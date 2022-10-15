@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import edu.duke.FileResource;
+
 public class CharactersInPlay{
 
     private ArrayList<String> charNames;
@@ -19,6 +21,17 @@ public class CharactersInPlay{
         else{
             int value = counts.get(index);
             counts.set(index, value+1);
+        }
+    }
+
+    void findAllCharacters(){
+        FileResource fr = new FileResource();
+        for(String line : fr.lines()){
+            int index = line.indexOf(".");
+            if(index != -1){
+                String person = line.substring(0, index);
+                update(person);
+            }
         }
     }
 
