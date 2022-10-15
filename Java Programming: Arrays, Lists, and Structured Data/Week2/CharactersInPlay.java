@@ -25,6 +25,8 @@ public class CharactersInPlay{
     }
 
     void findAllCharacters(){
+        charNames.clear();
+        counts.clear();
         FileResource fr = new FileResource();
         for(String line : fr.lines()){
             int index = line.indexOf(".");
@@ -33,6 +35,7 @@ public class CharactersInPlay{
                 update(person);
             }
         }
+
     }
 
     public static void main(String[] args){
